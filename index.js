@@ -1,11 +1,11 @@
-function submitData(userName, userEmail){
+function submitData(name, email){
     let userData = {
-        name: "Steve",
-        email: "steve@steve.com"
+        name,
+        email
     }
 
     let configObject = {
-        // method: "POST",
+        method: "POST",
         headers: {
             "Content-type": "application/json",
             "Accept": "application/json"
@@ -13,7 +13,7 @@ function submitData(userName, userEmail){
         body: JSON.stringify(userData)
         }
 
-    fetch('http://localhost:3000/users', configObject)
+    return fetch('http://localhost:3000/users', configObject)
     .then(function(response){
         return response.json();
     })
@@ -30,11 +30,11 @@ function submitData(userName, userEmail){
 
 function appendToDom(objectId){
     const body = document.querySelector("body")
-    body.innerText = objectId
+    body.innerHTML = objectId
 }
 
 function appendErrorToDom(error){
     const body = document.querySelector("body")
-    body.innerText = error
+    body.innerHTML = error
 }
 // submitData()
